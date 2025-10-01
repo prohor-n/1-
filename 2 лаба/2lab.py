@@ -3,7 +3,7 @@ DIGITS = {'0':'ноль','1':'один','2':'два','3':'три','4':'четы�
 def to_words(n): return ' '.join(DIGITS[d] for d in str(n))
 def process(f):
     with open(f) as file: txt = file.read()
-    pattern = re.findall(r'\b[0-3]2[0-3][13]\b', txt)
+    pattern = re.findall(r'\b\d*2[0-3][13]\b', txt)
     valid = [x for x in pattern if int(x, 4) <= 4095]
     for x in valid: print(x.replace('2',''))
     if valid:
